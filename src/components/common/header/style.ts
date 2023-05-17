@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
-import { Color } from "../../styles/theme/color";
+import { Color } from "../../../styles/theme/color";
 
 export const HeaderBar = styled.div`
   width: 100%;
-  height: 90px;
+  height: 100px;
 
   border: none;
   background-color: ${Color.main};
@@ -14,6 +14,7 @@ export const HeaderBar = styled.div`
 
 export const Flex = styled.div`
   width: 60%;
+  min-width: 800px;
   height: 100%;
 
   display: flex;
