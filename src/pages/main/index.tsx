@@ -1,9 +1,7 @@
-import { Button } from "../../components/button";
+import { Main } from "../../components/main";
 
 export const MainPage = () =>{
     return(
-        <div>
-            <Button Width="large">hihasfafai</Button>
-        </div>
+        <Main/>
     );
 }
