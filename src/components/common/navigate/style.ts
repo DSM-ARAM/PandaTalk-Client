@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { Color } from "../../../styles/theme/color";
 
 type NavigateColor = {
-  MainColor?: string;
+  maincolor?: string;
 };
 
 export const Background = styled.div`
@@ -26,7 +26,7 @@ export const Flex = styled.div`
 
 export const NavigateLink = styled(Link)<NavigateColor>`
   text-decoration: none;
-  color: ${(prpos) => (prpos.MainColor == "maincolor" ? Color.main : "black")};
+  color: ${(prpos) => (prpos.maincolor === "maincolor" ? Color.main : "black")};
   font-size: 20px;
   font-weight: bold;
 `;
