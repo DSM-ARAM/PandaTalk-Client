@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { styled } from "styled-components";
 import { Color } from "../../../styles/theme/color";
 
@@ -24,9 +24,15 @@ export const Flex = styled.div`
   justify-content: space-between;
 `;
 
-export const NavigateLink = styled(Link)<NavigateColor>`
+export const NavigateLink = styled(NavLink)<NavigateColor>`
   text-decoration: none;
-  color: ${(prpos) => (prpos.maincolor === "maincolor" ? Color.main : "black")};
+  color: ${Color.black};
   font-size: 20px;
   font-weight: bold;
+`;
+
+export const Line = styled.div`
+  width: 100%;
+  height: 2px;
+  background-color: ${Color.gray5};
 `;
