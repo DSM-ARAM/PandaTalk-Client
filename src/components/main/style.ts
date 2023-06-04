@@ -4,7 +4,7 @@ import { Color } from "../../styles/theme/color";
 
 export const Background = styled.div`
   width: 100%;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 172px);
 
   background-color: ${Color.gray5};
   display: flex;

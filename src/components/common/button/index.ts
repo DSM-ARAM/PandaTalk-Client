@@ -4,13 +4,13 @@ import { Color } from "../../../styles/theme/color";
 type ButtonType = {
   MainColor?: boolean;
   Gray?: boolean;
-  Weight?: string;
+  weight?: string;
   Width?: string | number | boolean;
 };
 
 export const Button = styled.button<ButtonType>`
   font-size: 20px;
-  font-weight: ${(props) => (props.Weight === "normal" ? props.Weight : "800")};
+  font-weight: ${(props) => (props.weight === "normal" ? props.weight : "800")};
   color: ${Color.black};
 
   border: 0;
@@ -28,8 +28,13 @@ export const Button = styled.button<ButtonType>`
       : "auto"};
 
   &:active {
-    transform: 100ms;
+    transition: all 0.3s;
     opacity: 0.8;
+  }
+
+  &:hover {
+    transition: all 0.3s;
+    background-color: ${Color.main};
   }
 
   background-color: ${(props) => (props.MainColor ? Color.main : Color.gray5)};

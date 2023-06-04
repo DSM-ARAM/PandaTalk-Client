@@ -56,18 +56,19 @@ export const BoxFlex = styled.div`
 `;
 
 export const GroupBox = styled.div`
-  width: 17%;
+  width: 20%;
   height: 100%;
   border: 2px solid ${Color.gray50};
   border-radius: 4px;
   margin-right: 20px;
+  min-width: 130px;
 
   display: flex;
   justify-content: center;
 `;
 
 export const DetailBox = styled.div`
-  width: calc(100% - 17% - 20px);
+  width: calc(100% - 20% - 20px);
   height: 100%;
   border: 2px solid ${Color.gray50};
   border-radius: 4px;
