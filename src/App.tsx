@@ -1,4 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue, } from 'recoil';
 import './App.css';
 import { Header } from './components/common/header';
 import { Navigate } from './components/common/navigate';
@@ -11,22 +16,24 @@ import { SignupPage } from './pages/signup';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <RecoilRoot>
+      <BrowserRouter>
+        <Routes>
 
-        <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/signup' element={<SignupPage/>}/>
+          <Route path='/login' element={<LoginPage/>}/>
+          <Route path='/signup' element={<SignupPage/>}/>
 
-        <Route element={<Header/>}>
-          <Route element={<Navigate/>}>
-            <Route path='/main' element={<MainPage/>}/>
-            <Route path='/alarm' element={<AlarmPage/>}/>
-            <Route path='/people' element={<PeoplePage/>}/>
+          <Route element={<Header/>}>
+            <Route element={<Navigate/>}>
+              <Route path='/main' element={<MainPage/>}/>
+              <Route path='/alarm' element={<AlarmPage/>}/>
+              <Route path='/people' element={<PeoplePage/>}/>
+            </Route>
           </Route>
-        </Route>
 
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 
