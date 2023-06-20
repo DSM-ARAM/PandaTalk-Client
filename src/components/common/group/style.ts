@@ -2,10 +2,8 @@ import { styled } from "styled-components";
 import { Color } from "../../../styles/theme/color";
 
 export const GroupFlex = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
 `;
 
 export const GroupListFlex = styled.div`
@@ -18,13 +16,13 @@ export const Group = styled.div`
   align-items: center;
   gap: 15px;
   min-width: 100px;
+  margin: 5px 0;
 `;
 
 export const CheckBoxLabel = styled.div`
   display: flex;
   align-items: center;
   user-select: none;
-  gap: 10px;
 `;
 
 export const CheckBox = styled.input`
@@ -46,12 +44,12 @@ export const CheckBox = styled.input`
 export const ListChangeFlex = styled.div`
   display: flex;
   cursor: pointer;
+  gap: 10px;
 `;
 
 export const AddListBtn = styled.img`
   width: 20px;
   height: 20px;
-  margin-right: 20px;
 `;
 
 export const GroupName = styled.label`
@@ -59,16 +57,30 @@ export const GroupName = styled.label`
 `;
 
 export const PeopleListFlex = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  padding-left: 32%;
+  padding-left: 20%;
 `;
 
 export const PeopleList = styled.div`
+  width: 60%;
+  min-width: 100px;
   display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const PeopleGroup = styled.div`
   font-size: 18px;
   margin: 10px 10px;
+`;
+
+export const NameList = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin: 10px 25%;
+  word-break: keep-all;
 `;

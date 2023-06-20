@@ -50,7 +50,7 @@ export const Line = styled.div`
 
 export const BoxFlex = styled.div`
   width: 100%;
-  height: 60%;
+  height: 70%;
   margin-top: 20px;
   display: flex;
 `;
@@ -62,24 +62,29 @@ export const GroupBox = styled.div`
   border-radius: 4px;
   margin-right: 20px;
   min-width: 130px;
+  padding-top: 2%;
+  padding-left: 2%;
+  gap: 10px;
 
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  overflow: scroll;
 `;
 
 export const DetailBox = styled.div`
   width: calc(100% - 20% - 20px);
+  min-width: 600px;
   height: 100%;
   border: 2px solid ${Color.gray50};
   border-radius: 4px;
+  padding: 20px;
 `;
 
 export const BtnFlex = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-left: 3.5%;
-
+  padding-left: 5%;
   margin-top: 10px;
 `;
 

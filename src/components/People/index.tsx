@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { isGroupListAtom } from "../atom";
 import { GroupContent } from "../common/group";
+import {DetailPeopleList} from "../common/peoplelist";
 import * as _ from "./style"
 
 export const People = () =>{
 
     const [groupState, setGroupState] = useState<number>(1);
 
+    const [datas, setDatas] = useState([
+        {id: 1, group: "1학년", class: ["1반", "2반", "3반", "4반"]},
+        {id: 2, group: "2학년", class: ["1반", "2반"]},
+        {id: 3, group: "3학년", class: ["1반", "2반", "4반"] },
+    ])
+
+    const groupListState = useRecoilValue(isGroupListAtom);
+    
     return(
         <_.Background>
             <_.Flex>
@@ -17,9 +28,21 @@ export const People = () =>{
                 <_.Line/>
                 <_.BoxFlex>
                     <_.GroupBox>
-                        <GroupContent groups={groupState} />
+                        {
+                            datas.map(data=>(
+                                <GroupContent 
+                                    groups={groupState} 
+                                    groupName={data.group}
+                                    groupClass={data.class}
+                                    key={data.id}
+                                />
+                            ))
+                        }
+                        
                     </_.GroupBox>
-                    <_.DetailBox></_.DetailBox>
+                    <_.DetailBox>
+                        <DetailPeopleList/>
+                    </_.DetailBox>
                 </_.BoxFlex>
                 <_.BtnFlex>
                     <_.PeopleBtn>그룹 삭제</_.PeopleBtn>

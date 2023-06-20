@@ -1,21 +1,23 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
+import { useRecoilState } from "recoil";
+import { isGroupListAtom } from "../../atom";
 import * as _ from "./style"
 
 type GroupState = {
     groups?: number;
+    id?: number;
+    groupName: string;
+    groupClass: string[];
 }
 
-export const GroupContent = ({groups}:GroupState) => {
+export const GroupContent = ({groups, groupName, id, groupClass}:GroupState) => {
 
-    const [listState, setListState] = useState<boolean>(true);
-    const [peopleViewState, setPeopleViewState] = useState<string>("");
+    const [listGradeState, setListGradeState] = useState<boolean>(true);
+    const [peopleViewState, setPeopleViewState] = useRecoilState(isGroupListAtom);
 
-    const AddListHandling = () =>{
-        if(listState){
-            setListState(false);
-        }else{
-            setListState(true);
-        }
+    const GroupListHandling = () =>{
+        setListGradeState(listGradeState => !listGradeState);
+        setPeopleViewState({group: groupName, class: "", status: true});
     }
 
     if(groups === 1){
@@ -26,27 +28,33 @@ export const GroupContent = ({groups}:GroupState) => {
                         <_.CheckBoxLabel>
                             <_.CheckBox type="checkbox" />
                         </_.CheckBoxLabel>
-                        <_.ListChangeFlex onClick={AddListHandling}>
+                        <_.ListChangeFlex onClick={GroupListHandling}>
                             <_.AddListBtn 
-                                src={listState === true ? "/assets/img/AddList.svg" : "/assets/img/List.svg"}
+                                src={listGradeState === true ? "/assets/img/AddList.svg" : "/assets/img/List.svg"}
                             />
-                            <_.GroupName>1학년</_.GroupName>
+                            <_.GroupName>{groupName}</_.GroupName>
                         </_.ListChangeFlex>
                     </_.Group>
                     {
-                        listState === false ? 
-                        <_.PeopleListFlex>
-                            <_.PeopleList>
-                                <_.CheckBoxLabel>
-                                    <_.CheckBox type="checkbox" />
-                                </_.CheckBoxLabel>
-                                <_.PeopleGroup>1반</_.PeopleGroup>
-                            </_.PeopleList>
-                    </_.PeopleListFlex>
-                    :
-                    <div></div>
-                    }
-                    
+                        groupClass.map((data, index)=>{
+                            return(
+                                    listGradeState === false ? 
+                                    <_.PeopleListFlex>
+                                        <_.PeopleList>
+                                            <_.CheckBoxLabel>
+                                                <_.CheckBox type="checkbox" />
+                                            </_.CheckBoxLabel>
+                                            <_.PeopleGroup 
+                                                onClick={()=> setPeopleViewState(
+                                                    {group: groupName, class: groupClass[index], status: true}
+                                                )}
+                                            >{data}</_.PeopleGroup>
+                                        </_.PeopleList>
+                                </_.PeopleListFlex>
+                                :
+                                <></>
+                        );
+                    })}
                 </_.GroupListFlex>
             </_.GroupFlex>
         );
