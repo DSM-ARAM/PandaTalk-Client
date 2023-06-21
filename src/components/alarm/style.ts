@@ -1,3 +1,4 @@
+import ReactQuill from "react-quill";
 import { styled } from "styled-components";
 import { Color } from "../../styles/theme/color";
 
@@ -14,7 +15,7 @@ export const Background = styled.div`
 export const Box = styled.div`
   width: 50%;
   min-width: 800px;
-  height: 1000px;
+  height: 1500px;
   background-color: ${Color.white};
   padding: 0 40px;
 `;
@@ -90,4 +91,20 @@ export const TitleInput = styled.input`
   outline: none;
   border: 1px solid ${Color.gray25};
   border-radius: 5px;
+`;
+
+export const Editer = styled(ReactQuill)`
+  height: 350px;
+  margin-top: 3%;
+
+  margin-bottom: 10%;
+`;
+
+export const AddFileFlex = styled.div`
+  display: flex;
+
+  & > div {
+    font-size: 20px;
+    color: ${Color.gray50};
+  }
 `;
