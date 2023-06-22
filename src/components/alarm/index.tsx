@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../common/button";
 import { Calender } from "../common/calender";
 import * as _ from "./style";
+import 'react-quill/dist/quill.snow.css';
 
 export const Alarm = () =>{
 
     const [radio, setRadiop] = useState<string>();
+    const [editerValue, setEditerValue] = useState<string>();
+    const [fileValue, setFileValue] = useState<Blob>();
+    const [viewValue, setViewValue] = useState<string>();
+
+    useEffect(()=>{
+        setEditerValue("");
+        setViewValue("");
+    },[]);
 
     const handleClickRadioBtn = (e:React.ChangeEvent<HTMLInputElement>) =>{
         setRadiop(e.target.value);
@@ -40,6 +49,11 @@ export const Alarm = () =>{
                     </_.EssentialFlex>
                 </_.PeopleFlex>
                 <_.TitleInput placeholder="제목을 작성해주세요" />
+                <_.Editer theme="snow" value={editerValue} onChange={setEditerValue}/>
+                <_.AddFileFlex>
+                    <div>첨부 파일</div>
+                    <input type="file" />
+                </_.AddFileFlex>
             </_.Box>
         </_.Background>
     );
