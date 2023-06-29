@@ -15,7 +15,7 @@ export const Background = styled.div`
 export const Box = styled.div`
   width: 50%;
   min-width: 800px;
-  height: 1500px;
+  height: 1200px;
   background-color: ${Color.white};
   padding: 0 40px;
 `;
@@ -96,15 +96,62 @@ export const TitleInput = styled.input`
 export const Editer = styled(ReactQuill)`
   height: 350px;
   margin-top: 3%;
-
   margin-bottom: 10%;
 `;
 
 export const AddFileFlex = styled.div`
+  width: 30%;
   display: flex;
+  justify-content: space-between;
 
   & > div {
     font-size: 20px;
     color: ${Color.gray50};
   }
+`;
+
+export const LabelFlex = styled.div``;
+
+export const FileLabel = styled.label`
+  background-color: ${Color.gray5};
+  color: ${Color.black};
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px;
+  border-radius: 4px;
+`;
+
+export const FileInput = styled.input`
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+`;
+
+export const BtnFlex = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
+
+export const SendBtn = styled.button`
+  width: 40%;
+  color: ${Color.black};
+  font-size: 24px;
+  font-weight: 800;
+  background-color: ${Color.main};
+  padding: 5px 20px;
+  border: none;
+  border-radius: 10px;
+
+  &:hover {
+    transition: all 0.3s;
+    transform: scale(1.025);
+  }
+
+  &:active {
+    transition: all 0.3s;
+    filter: brightness(0.9);
+  }
+
+  margin-top: 25%;
 `;

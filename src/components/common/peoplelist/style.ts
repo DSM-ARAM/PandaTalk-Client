@@ -57,7 +57,7 @@ export const StudentIdFlex = styled.div`
   align-items: center;
 `;
 
-export const DetailPeopleList = styled.div`
+export const DetailPeopleListFlex = styled.div`
   font-size: 18px;
   color: ${Color.black};
 
@@ -71,6 +71,8 @@ export const DetailPeopleList = styled.div`
     background-color: ${Color.gray5};
   }
 `;
+
+export const DetailPeopleList = styled.div``;
 
 export const CheckBoxLabelMove = styled.div`
   display: flex;

@@ -1,4 +1,4 @@
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { isGroupListAtom } from "../../atom";
 import * as _ from "./style"
@@ -32,19 +32,23 @@ export const GroupContent = ({groups, groupName, id, groupClass}:GroupState) => 
                             <_.AddListBtn 
                                 src={listGradeState === true ? "/assets/img/AddList.svg" : "/assets/img/List.svg"}
                             />
-                            <_.GroupName>{groupName}</_.GroupName>
+                            <_.GroupName 
+                            bold={
+                                listGradeState ? false : true
+                            }
+                            >{groupName}</_.GroupName>
                         </_.ListChangeFlex>
                     </_.Group>
                     {
                         groupClass.map((data, index)=>{
                             return(
                                     listGradeState === false ? 
-                                    <_.PeopleListFlex>
+                                    <_.PeopleListFlex key={id}>
                                         <_.PeopleList>
                                             <_.CheckBoxLabel>
                                                 <_.CheckBox type="checkbox" />
                                             </_.CheckBoxLabel>
-                                            <_.PeopleGroup 
+                                            <_.PeopleGroup
                                                 onClick={()=> setPeopleViewState(
                                                     {group: groupName, class: groupClass[index], status: true}
                                                 )}

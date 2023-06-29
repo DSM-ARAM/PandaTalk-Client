@@ -20,6 +20,7 @@ export const Flex = styled.div`
     font-weight: 800;
     margin-top: 5%;
   }
+  margin-left: 3%;
 `;
 
 export const LastSendList = styled.div`

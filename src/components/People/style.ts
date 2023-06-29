@@ -10,6 +10,10 @@ export const Background = styled.div`
   height: calc(100vh - 172px);
   display: flex;
   justify-content: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 
 export const Flex = styled.div`

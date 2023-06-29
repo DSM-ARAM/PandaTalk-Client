@@ -1,6 +1,10 @@
 import { styled } from "styled-components";
 import { Color } from "../../../styles/theme/color";
 
+type GroupWeight = {
+  bold?: boolean;
+};
+
 export const GroupFlex = styled.div`
   display: flex;
   flex-direction: column;
@@ -52,8 +56,9 @@ export const AddListBtn = styled.img`
   height: 20px;
 `;
 
-export const GroupName = styled.label`
-  font-size: 18px;
+export const GroupName = styled.label<GroupWeight>`
+  font-size: 20px;
+  font-weight: ${(props) => (props.bold ? 800 : 400)};
 `;
 
 export const PeopleListFlex = styled.div`
@@ -71,9 +76,10 @@ export const PeopleList = styled.div`
   gap: 10px;
 `;
 
-export const PeopleGroup = styled.div`
+export const PeopleGroup = styled.div<GroupWeight>`
   font-size: 18px;
   margin: 10px 10px;
+  font-weight: ${(props) => (props.bold ? 800 : 400)};
 `;
 
 export const NameList = styled.div`
