@@ -1,6 +1,41 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import * as _ from "./style";
 
+const baseUrl = process.env.REACT_APP_BASEURL
+
+interface ListType{
+    userId: number,
+    userName: string,
+    userDepartment: string,
+    noticeID: number,
+    noticeHead: string,
+    noticeContent: string,
+    noticeBy: string,
+    noticeAdditional: string,
+    createdAt: string, 
+}
+
 export const Main = () =>{
+
+    const token = localStorage.getItem("AccessToken");
+    const [dataList, setDataList] = useState<ListType>();
+
+    useEffect(()=>{
+        axios({
+            method: 'get',
+            url: `${baseUrl}/main`,
+            headers: {
+                "Authorization": `Bearer ${token}`
+            },
+        }).then((result)=>{
+            console.log(result);
+            setDataList(result.data);
+        }).catch((error)=>{
+            console.error(error);
+        });
+    },[])
+
     return(
         <_.Background>
             <_.Flex>
@@ -9,58 +44,23 @@ export const Main = () =>{
                     <_.AllSendResult to="/result">더보기</_.AllSendResult>
                 </_.AllSendResultFlex>
                 <_.LastSendList>
-                    <_.SendCard>
-                        <_.Information>
-                            <_.Title>오늘도 망했네 망했어...</_.Title>
-                            <_.InformationFlex>
-                                <_.Days>2023-05-21 일요일</_.Days>
-                                <_.Bar></_.Bar>
-                                <_.Name>니시노 카나</_.Name>
-                            </_.InformationFlex>
-                        </_.Information>
-                        <_.Contents>
-                            <_.ContentText>끼얏호 어떻하지 진짜 클났다!! 정신나갈거같애정신나갈거같애정신나갈거같애정신나갈거같애정신나갈거같애</_.ContentText>
-                        </_.Contents>
-                    </_.SendCard>
-                    <_.SendCard>
-                        <_.Information>
-                            <_.Title>오늘도 망했네 망했어...</_.Title>
-                            <_.InformationFlex>
-                                <_.Days>2023-05-21 일요일</_.Days>
-                                <_.Bar></_.Bar>
-                                <_.Name>니시노 카나</_.Name>
-                            </_.InformationFlex>
-                        </_.Information>
-                        <_.Contents>
-                            <_.ContentText>끼얏호 어떻하지 진짜 클났다!! 정신나갈거같애정신나갈거같애정신나갈거같애정신나갈거같애정신나갈거같애</_.ContentText>
-                        </_.Contents>
-                    </_.SendCard>
-                    <_.SendCard>
-                        <_.Information>
-                            <_.Title>오늘도 망했네 망했어...</_.Title>
-                            <_.InformationFlex>
-                                <_.Days>2023-05-21 일요일</_.Days>
-                                <_.Bar></_.Bar>
-                                <_.Name>니시노 카나</_.Name>
-                            </_.InformationFlex>
-                        </_.Information>
-                        <_.Contents>
-                            <_.ContentText>끼얏호 어떻하지 진짜 클났다!! 정신나갈거같애정신나갈거같애정신나갈거같애정신나갈거같애정신나갈거같애</_.ContentText>
-                        </_.Contents>
-                    </_.SendCard>
-                    <_.SendCard>
-                        <_.Information>
-                            <_.Title>오늘도 망했네 망했어...</_.Title>
-                            <_.InformationFlex>
-                                <_.Days>2023-05-21 일요일</_.Days>
-                                <_.Bar></_.Bar>
-                                <_.Name>니시노 카나</_.Name>
-                            </_.InformationFlex>
-                        </_.Information>
-                        <_.Contents>
-                            <_.ContentText>끼얏호 어떻하지 진짜 클났다!! 정신나갈거같애정신나갈거같애정신나갈거같애정신나갈거같애정신나갈거같애</_.ContentText>
-                        </_.Contents>
-                    </_.SendCard>
+                    {
+                        // dataList.map(data=>{
+                        //     <_.SendCard>
+                        //         <_.Information>
+                        //             <_.Title>{data.notionHead}</_.Title>
+                        //             <_.InformationFlex>
+                        //                 <_.Days>{data.createdAt}</_.Days>
+                        //                 <_.Bar></_.Bar>
+                        //                 <_.Name>{data.notionBy}</_.Name>
+                        //             </_.InformationFlex>
+                        //         </_.Information>
+                        //         <_.Contents>
+                        //             <_.ContentText>{data.noticeContent}</_.ContentText>
+                        //         </_.Contents>
+                        //     </_.SendCard>
+                        // })
+                    }
                 </_.LastSendList>
             </_.Flex>
         </_.Background>
