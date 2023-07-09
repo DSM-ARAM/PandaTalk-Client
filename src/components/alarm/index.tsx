@@ -1,29 +1,38 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "../common/button";
 import { Calender } from "../common/calender";
 import * as _ from "./style";
 import 'react-quill/dist/quill.snow.css';
 import { Route, useNavigate } from "react-router-dom";
 
+interface FileType{
+    name: string,
+    order: number,
+}
+
 export const Alarm = () =>{
 
     const navigate = useNavigate();
     const [radio, setRadiop] = useState<string>();
     const [editerValue, setEditerValue] = useState<string>("");
-    const [fileValue, setFileValue] = useState<string[]>([""]);
-    const [viewValue, setViewValue] = useState<string[]>([""]);
+    const [fileValue, setFileValue] = useState<File[]>();
+    const [viewValue, setViewValue] = useState<FileType[]>([]);
 
     const handleClickRadioBtn = (e:React.ChangeEvent<HTMLInputElement>) =>{
         setRadiop(e.target.value);
     }
 
-    const hadleClickFile=(e:React.ChangeEvent<HTMLInputElement>)=>{
-
-        const selectFiles = e.target.files;
-
-        setFileValue([e.target.value]);
-        setViewValue([e.target.value]);
-        console.log(selectFiles);
+    const hadleClickFile=(e: any)=>{
+        const fileList = e.target.files;
+        if(fileList){
+            const newFileList = fileList.map((file: File, idx: number) => ({
+                name: file.name,
+                order: idx,
+            }))
+            
+            setViewValue(newFileList);
+        }
+        console.log(fileValue);
     }
 
     const hadleClickSend = () => {
@@ -69,15 +78,16 @@ export const Alarm = () =>{
                             multiple
                             id="fileUpload"
                             onChange={hadleClickFile}
-                            value={viewValue}
                         />
                     </_.LabelFlex>
                 </_.AddFileFlex>
-                {
-                    viewValue.map(data=>(
-                        <div>{data}</div>
-                    ))
-                }
+                <_.FileNameFlex>
+                    {
+                        viewValue.map(data=>(
+                            <_.FileName key={data.order}>{data.name}</_.FileName>
+                        ))
+                    }
+                </_.FileNameFlex>
                 <_.BtnFlex>
                     <_.SendBtn onClick={hadleClickSend}>보내기</_.SendBtn>
                 </_.BtnFlex>

@@ -13,16 +13,16 @@ export const Header = () => {
     const [headerData, setHeaderData] = useState();
 
     useEffect(()=>{
-        axios({
-            method: "get",
-            url: `${baseUrl}/main/header`,
-            headers:{
-                "Authorization": `Bearer ${AccessToken}`
-            }
-        }).then((result)=>{
-            console.log(result);
-            setHeaderData(result.data.data);
-        })
+        // axios({
+        //     method: "get",
+        //     url: `${baseUrl}/main/header`,
+        //     headers:{
+        //         "Authorization": `Bearer ${AccessToken}`
+        //     }
+        // }).then((result)=>{
+        //     console.log(result);
+        //     setHeaderData(result.data.data);
+        // })
     },[])
 
     return(
@@ -31,8 +31,8 @@ export const Header = () => {
                 <_.Flex>
                     <_.MainLogo src="/assets/img/Logo.svg"/>
                     <div>
-                        <_.TheacherInfo>{headerData.userName}</_.TheacherInfo>
-                        <_.TheacherInfo>{headerData.userDepartment}</_.TheacherInfo>
+                        {/* <_.TheacherInfo>{headerData.userName}</_.TheacherInfo>
+                        <_.TheacherInfo>{headerData.userDepartment}</_.TheacherInfo> */}
                     </div>
                 </_.Flex>
             </_.HeaderBar>

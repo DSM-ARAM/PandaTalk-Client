@@ -10,6 +10,7 @@ import { Navigate } from './components/common/navigate';
 import { AccessAlarmPage } from './pages/accessAlarm';
 import { AlarmPage } from './pages/alarm';
 import { AnotherDetailPage } from './pages/anotherDetail';
+import { DetailPage } from './pages/detail';
 import { LoginPage } from './pages/login';
 import {MainPage} from './pages/main';
 import { PeoplePage } from './pages/people';
@@ -34,6 +35,7 @@ function App() {
               <Route path='/people' element={<PeoplePage/>}/>
               <Route path='/result' element={<ResultPage/>} />
               <Route path='/alarm/access' element={<AccessAlarmPage />}/>
+              <Route path='/result/detail' element={<DetailPage/>}/>
             </Route>
           </Route>
 

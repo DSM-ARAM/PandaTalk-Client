@@ -1,31 +1,35 @@
 import { styled } from "styled-components";
 import { Color } from "../../styles/theme/color";
 
-export const Header = styled.div`
-  width: 100%;
-  height: 100px;
-  background-color: ${Color.main};
-  display: flex;
-  justify-content: center;
-`;
-
-export const LogoFlex = styled.div`
-  width: 60%;
-  display: flex;
-`;
-
-export const LogoImg = styled.img`
-  width: 100px;
-`;
-
 export const ContentFlex = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 
-  margin-top: 6%;
+  margin-top: 3%;
+`;
+
+export const ReturnResult = styled.div`
+  width: 60%;
+  margin-bottom: 1%;
+`;
+
+export const RetrunFlex = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  & > div {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+`;
+
+export const ReturnBtn = styled.img`
+  cursor: pointer;
 `;
 
 export const Content = styled.div`
@@ -61,6 +65,12 @@ export const Line = styled.div`
   background-color: ${Color.gray25};
 `;
 
+export const MainContents = styled.div`
+  width: 100%;
+  height: 65%;
+  margin-top: 2%;
+`;
+
 export const FileFlex = styled.div`
   width: 100%;
   height: 100%;
@@ -82,4 +92,9 @@ export const FileList = styled.div`
 export const Files = styled.div`
   background-color: ${Color.white};
   padding: 5px 20px;
+  cursor: pointer;
+  &:hover {
+    transition: all 0.3s;
+    transform: scale(1.025);
+  }
 `;

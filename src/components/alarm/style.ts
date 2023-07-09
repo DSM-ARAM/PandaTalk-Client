@@ -153,5 +153,21 @@ export const SendBtn = styled.button`
     filter: brightness(0.9);
   }
 
-  margin-top: 25%;
+  margin-top: 12%;
+`;
+
+export const FileNameFlex = styled.div`
+  width: 100%;
+  height: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  gap: 10px;
+`;
+
+export const FileName = styled.div`
+  font-size: 14px;
+  border: 1px solid ${Color.gray25};
+  padding: 5px 10px;
+  border-radius: 5px;
 `;

@@ -65,7 +65,7 @@ export const GroupContent = ({groups, groupName, id, groupClass}:GroupState) => 
     }
     else if(groups === 2){
         return(
-            <div>byebye</div>
+            <div>hihi</div>
         );
     }
     else return null;
