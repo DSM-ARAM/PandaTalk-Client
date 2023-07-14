@@ -37,13 +37,13 @@ export const Login = () => {
             navigate("/main");
         }).catch((error)=>{
             console.error(error);
-            if(error.data.statusCode === 400){
+            if(error.status === 400){
                 alert("에러가 발생했습니다.");
             }
-            else if(error.data.statusCode === 404){
+            else if(error.status === 404){
                 alert("존재하지 않는 이메일 입니다.");
             }
-            else if(error.data.statusCode === 409){
+            else if(error.status === 409){
                 alert("비밀번호가 일치하지 않습니다.");
             }
         })

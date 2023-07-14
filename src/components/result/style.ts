@@ -60,7 +60,7 @@ export const InfoBar = styled.div`
 `;
 
 export const Time = styled.div`
-  width: 15%;
+  width: 17%;
 `;
 
 export const Content = styled.div`

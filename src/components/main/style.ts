@@ -56,6 +56,10 @@ export const SendCard = styled.div`
   width: 22%;
   height: 35%;
   background-color: ${Color.white};
+  &:hover {
+    box-shadow: 4px 4px 6px ${Color.gray25};
+    transition: all 0.3s;
+  }
 `;
 
 export const Information = styled.div`

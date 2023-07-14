@@ -29,6 +29,7 @@ export const Flex = styled.div`
 
 export const MainLogo = styled.img`
   width: 85px;
+  cursor: pointer;
 `;
 
 export const TheacherInfo = styled.div`

@@ -87,6 +87,7 @@ export const FileList = styled.div`
   padding: 10px 20px;
   display: flex;
   align-items: center;
+  gap: 10px;
 `;
 
 export const Files = styled.div`
